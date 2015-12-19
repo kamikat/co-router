@@ -24,8 +24,9 @@ Or, save to dependency:
     });
 
     router.get('/route/co', function* (req, res, next) {
-      var rows = yield db.query('SELECT 1 + 1'); // Uncaught error (reject) will call `next(err)` automatically.
-      return res.send(rows);
+      var rows = yield db.query('SELECT 1 + 1');
+      // Uncaught error (reject) is handled with `next(err)` automatically.
+      // Do something...
     });
 
     router.get('/route/together', function (req, res, next) {
