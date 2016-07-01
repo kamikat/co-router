@@ -1,6 +1,6 @@
 {
   "name": "co-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Benefit from generator on express router.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kirisetsz/co-router.git"
+    "url": "git+https://github.com/kamikat/co-router.git"
   },
   "keywords": [
     "express",
@@ -17,12 +17,12 @@
     "es6",
     "router"
   ],
-  "author": "kirisetsz <kirisetsz@gmail.com>",
+  "author": "kamikat <kirisetsz@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kirisetsz/co-router/issues"
+    "url": "https://github.com/kamikat/co-router/issues"
   },
-  "homepage": "https://github.com/kirisetsz/co-router#readme",
+  "homepage": "https://github.com/kamikat/co-router#readme",
   "dependencies": {
     "co-express": "^1.2.1",
     "express": "^4.13.3",
