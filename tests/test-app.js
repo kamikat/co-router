@@ -11,6 +11,12 @@ router.get('/api/users', function * allUsersRoute(req, res) {
   res.json(results);
 });
 
+router.get('/api/comments', function allCommentsRoute(req, res) {
+  mockModel(['hello', 'goodbye']).then(function (results) {
+    res.json(results);
+  });
+});
+
 router.route('/api/posts')
   .get(function * allPostsRoute(req, res) {
     var results = yield mockModel(['a', 'b']);

@@ -4,7 +4,7 @@ var test = require('tape');
 var request = require('supertest');
 var app = require('./test-app');
 
-test('Basic valid route', function (t) {
+test('Basic valid route with generator', function (t) {
   request(app)
     .get('/api/users')
     .expect('Content-Type', /json/)
@@ -14,6 +14,20 @@ test('Basic valid route', function (t) {
 
       t.error(err, 'No error');
       t.same(res.body, expectedUsers, 'Users as expected');
+      t.end();
+    });
+});
+
+test('Basic valid route', function (t) {
+  request(app)
+    .get('/api/comments')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, res) {
+      var expected = ['hello', 'goodbye'];
+
+      t.error(err, 'No error');
+      t.same(res.body, expected, 'Comments as expected');
       t.end();
     });
 });
