@@ -46,24 +46,20 @@ test('Basic valid route', function (t) {
 });
 
 test('Routed router setup', function (t) {
-  t.timeoutAfter(2500);
-
   request(app)
     .get('/api/posts')
     .expect('Content-Type', /json/)
     .expect(200)
     .end(function (err, res) {
-      var expectedPosts = ['a', 'b'];
+      var expected = ['a', 'b'];
 
       t.error(err, 'No error');
-      t.same(res.body, expectedUsers, 'Posts as expected');
+      t.same(res.body, expected, 'Posts as expected');
       t.end();
     });
 });
 
 test('Routed router setup rejected', function (t) {
-  t.timeoutAfter(2500);
-
   request(app)
     .post('/api/posts')
     .expect('Content-Type', /json/)
