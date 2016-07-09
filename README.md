@@ -1,10 +1,10 @@
 co-router
 ---------
 
-Benefit from generators on express router.
+[![Travis branch](https://img.shields.io/travis/kamikat/co-router/master.svg?maxAge=2592000)](https://travis-ci.org/kamikat/co-router)
+[![npm](https://img.shields.io/npm/v/co-router.svg?maxAge=2592000)](https://www.npmjs.com/package/co-router)
 
-[![Build Status](https://travis-ci.org/kamikat/co-router.svg?branch=master)](https://travis-ci.org/kamikat/co-router)
-[![npm version](https://badge.fury.io/js/co-router.svg)](https://badge.fury.io/js/co-router)
+Benefit from generators with express router.
 
 ### Installation ###
 
