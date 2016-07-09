@@ -3,7 +3,8 @@ co-router
 
 Benefit from generators on express router.
 
-[![NPM][npm-badge-img]][npm-badge-link] [![Build Status][travis-badge]][travis-badge-link]
+[![Build Status](https://travis-ci.org/kamikat/co-router.svg?branch=master)](https://travis-ci.org/kamikat/co-router)
+[![npm version](https://badge.fury.io/js/co-router.svg)](https://badge.fury.io/js/co-router)
 
 ### Installation ###
 
@@ -75,7 +76,3 @@ License
 
 (The MIT License)
 
-[npm-badge-img]: https://badge.fury.io/js/co-router.svg
-[npm-badge-link]: http://badge.fury.io/js/co-router
-[travis-badge]: https://travis-ci.org/kamikat/co-router.svg?branch=master
-[travis-badge-link]: https://travis-ci.org/kamikat/co-router
