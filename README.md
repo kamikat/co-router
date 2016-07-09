@@ -9,12 +9,6 @@ Benefit from generators with express router.
 ### Installation ###
 
 ```sh
-$ npm install co-router
-```
-
-Or, save to dependency:
-
-```sh
 $ npm install --save co-router
 ```
 
@@ -24,50 +18,57 @@ $ npm install --save co-router
 var Router = require('co-router');
 var router = Router();
 
-router.get('/route', function (req, res, next) {
-  var rows = db.query('SELECT 1 + 1', function (err, rows) {
-    if (err) {
-      return next(err);
-    }
-    return res.send(rows);
-  });
+// Express.js route handler
+
+router.get('/foo', function (req, res, next) {
+    var rows = db.query('SELECT 1 + 1', function (err, rows) {
+        if (err) {
+            return next(err);
+        }
+        return res.send(rows);
+    });
 });
 
 // Use a generator function as route handler
-router.get('/route/co', function* (req, res, next) {
-  var rows = yield db.query('SELECT 1 + 1');
-  // Uncaught error (reject) is handled with `next(err)`.
-  return res.send(rows);
+
+router.get('/bar', function* (req, res, next) {
+    var rows = yield db.query('SELECT 1 + 1');
+    // Uncaught error (reject) is handled with `next(err)`.
+    return res.send(rows);
 });
 
-// Compatible with legacy route handler, useful when reuse express middlewares
-router.get('/route/together', function (req, res, next) {
-  if (req.session.authenticated) {
-    next();
-  } else {
-    res.redirect(301, '/login.html');
-  }
+// Compatible with legacy route handler, helpful to reuse express middlewares
+
+router.post('/baz', function (req, res, next) {
+    if (req.session.authenticated) {
+        return next();
+    } else {
+        return res.redirect(301, '/login.html');
+    }
 }, function* (req, res, next) {
-  return res.send(yield Promise.resolve("Hello world"));
+    return res.send(yield Promise.resolve("Hello world"));
 });
 
 // Chaining routes
-router.route('/foo')
-  .get(function* (req, res, next) {
-    // Do something...
-  })
-  .post(function* (req, res, next) {
-    // Do something...
-  });
 
-// Middleware
+router.route('/baz')
+    .get(function* (req, res, next) {
+        // Do something...
+    })
+    .put(function* (req, res, next) {
+        // Do something...
+    });
+
+// Generator in middleware
+
 router.use(function* (req, res, next) {
-  // Do something...
+    // Do something
 });
 
-// Error handler
+// And error handler
+
 router.use(function* (err, req, res, next) {
-  // Do something...
+    // Handle error
 });
 ```
 
