@@ -29,7 +29,22 @@ module.exports = function () {
     } else {
       use.apply(this, [ path ].concat(transform(arguments, 1)));
     }
-  }
+  };
+
+  var route = router.route;
+  router.route = function () {
+    var routeRouter = route.apply(this, arguments);
+
+    methods.concat('all').forEach((method) => {
+      var route = routeRouter[method];
+      routeRouter[method] = function (path) {
+        route.apply(this, transform(arguments));
+        return routeRouter;
+      };
+    });
+
+    return routeRouter;
+  };
 
   return router;
 }
