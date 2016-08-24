@@ -1,6 +1,6 @@
 'use strict';
 
-var test = require('tape');
+var test = require('tap').test;
 var request = require('supertest');
 var app = require('./test-app');
 
