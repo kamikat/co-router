@@ -2,6 +2,7 @@ co-router
 ---------
 
 [![Travis branch](https://img.shields.io/travis/kamikat/co-router/master.svg?maxAge=2592000)](https://travis-ci.org/kamikat/co-router)
+[![Coverage Status](https://coveralls.io/repos/github/kamikat/co-router/badge.svg?branch=master)](https://coveralls.io/github/kamikat/co-router?branch=master)
 [![npm](https://img.shields.io/npm/v/co-router.svg?maxAge=2592000)](https://www.npmjs.com/package/co-router)
 
 Benefit from generators with express router.
