@@ -14,6 +14,9 @@
     "express",
     "co",
     "generator",
+    "promise",
+    "await",
+    "async",
     "es6",
     "router"
   ],
