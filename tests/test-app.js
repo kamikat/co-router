@@ -1,5 +1,6 @@
 'use strict';
 
+var hasAsync = require('./has-async')
 var express = require('express');
 var Bluebird = require('bluebird');
 var Router = require('../');
@@ -18,19 +19,9 @@ router.post('/api/users', function * allUsersRoute(req, res) {
   res.json(results);
 });
 
-
-// Resolved
-router.get('/api/async/users', async function allUsersRoute(req, res) {
-  var results = await mockModel(['John', 'Betty', 'Hal']);
-  res.json(results);
-});
-
-// Rejected
-router.post('/api/async/users', async function allUsersRoute(req, res) {
-  var results = await mockModel(['John', 'Betty', 'Hal'], 'error');
-  res.json(results);
-});
-
+if (hasAsync) {
+  require('./async-tests')(router, mockModel);
+}
 // Resolved
 router.get('/api/comments', function allCommentsRoute(req, res) {
   mockModel(['hello', 'goodbye']).then(function (results) {
