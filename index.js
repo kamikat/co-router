@@ -5,7 +5,7 @@ var methods = require('methods');
 
 var transform = function (args, offset) {
   return Array.prototype.slice.call(args, offset || 0).map((fn) => {
-    if (fn && fn.constructor.name === 'GeneratorFunction') {
+    if (fn && (fn.constructor.name === 'GeneratorFunction' || fn.constructor.name === 'AsyncFunction')) {
       return wrapCo(fn);
     }
     return fn;
@@ -48,4 +48,3 @@ module.exports = function () {
 
   return router;
 }
-

@@ -31,6 +31,33 @@ test('Basic errored route with generator', function (t) {
     });
 });
 
+test('Basic valid route with async/await', function (t) {
+  request(app)
+    .get('/api/async/users')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, res) {
+      var expectedUsers = ['John', 'Betty', 'Hal'];
+
+      t.error(err, 'No error');
+      t.same(res.body, expectedUsers, 'Users as expected');
+      t.end();
+    });
+});
+
+test('Basic errored route with async/await', function (t) {
+  request(app)
+    .post('/api/async/users')
+    .expect('Content-Type', /json/)
+    .expect(400)
+    .end(function (err, res) {
+      var expected = 'error';
+
+      t.same(res.body, expected, 'Has error');
+      t.end();
+    });
+});
+
 test('Basic valid route', function (t) {
   request(app)
     .get('/api/comments')
