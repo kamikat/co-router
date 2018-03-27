@@ -1,6 +1,6 @@
 {
   "name": "co-router",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Benefit from generator on express router.",
   "main": "index.js",
   "scripts": {
